@@ -17,6 +17,7 @@ import com.example.giphyappmonkeytech.GlideApp
 import com.example.giphyappmonkeytech.databinding.GifLayoutBinding
 import com.example.giphyappmonkeytech.dataclasses.GifData
 import com.example.giphyappmonkeytech.dataclasses.GifDataResult
+import com.example.giphyappmonkeytech.utils.GifUtils.Companion.getImageLoader
 
 class GifsAdapter(val context: Context, val gifs: List<GifData> = mutableListOf()) : ListAdapter<GifData, GifsAdapter.GifsViewHolder>(DiffCallback()) {
 
@@ -29,26 +30,10 @@ class GifsAdapter(val context: Context, val gifs: List<GifData> = mutableListOf(
 
     override fun onBindViewHolder(holder: GifsViewHolder, position: Int) {
         val data = getItem(position)
-        val imageLoader = Builder(context)
-            .components {
-                if (SDK_INT >= 28) {
-                    add(ImageDecoderDecoder.Factory())
-                } else {
-                    add(GifDecoder.Factory())
-                }
-            }
-            .build()
-
         with(holder) {
-            with(data) {
-                binding.gifTitle.text= this.title
-                binding.ivGif.load(data.bitly_gif_url,imageLoader = imageLoader)
-
-            }
+            binding.gifTitle.text= data.title
+            binding.ivGif.load(data.images.original.url,imageLoader = getImageLoader(context))
         }
-
-
-
     }
 
     // Skip unchanged items in the RecyclerView
