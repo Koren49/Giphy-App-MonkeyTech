@@ -6,6 +6,8 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+// API interfaces
+
 interface GifsAPI {
     @GET("v1/gifs/trending")
     fun getGifs(

@@ -6,6 +6,8 @@ import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 
+//Image loader function for reusability in main and pop up activities
+
 class GifUtils {
     companion object {
         fun getImageLoader(context: Context): ImageLoader {

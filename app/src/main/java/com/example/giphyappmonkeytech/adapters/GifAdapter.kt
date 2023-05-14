@@ -1,25 +1,22 @@
-package com.example.giphyappmonkeytech.adapters
+package com.example.giphyappmonkeytech
 
 import android.content.Context
+import android.content.Intent
+import android.content.IntentSender
 import android.os.Build.VERSION.SDK_INT
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.ImageLoader
-import coil.ImageLoader.*
-import coil.decode.GifDecoder
-import coil.decode.ImageDecoderDecoder
 import coil.load
-import com.bumptech.glide.Glide
-import com.example.giphyappmonkeytech.GlideApp
 import com.example.giphyappmonkeytech.databinding.GifLayoutBinding
 import com.example.giphyappmonkeytech.dataclasses.GifData
-import com.example.giphyappmonkeytech.dataclasses.GifDataResult
 import com.example.giphyappmonkeytech.utils.GifUtils.Companion.getImageLoader
 
-class GifsAdapter(val context: Context, val gifs: List<GifData> = mutableListOf()) : ListAdapter<GifData, GifsAdapter.GifsViewHolder>(DiffCallback()) {
+class GifsAdapter(val context: Context, private val onGifClickedListener: OnGifClickedListener) : ListAdapter<GifData, GifsAdapter.GifsViewHolder>(DiffCallback()) {
 
     class GifsViewHolder(val binding: GifLayoutBinding ) : RecyclerView.ViewHolder(binding.root)
 
@@ -33,8 +30,27 @@ class GifsAdapter(val context: Context, val gifs: List<GifData> = mutableListOf(
         with(holder) {
             binding.gifTitle.text= data.title
             binding.ivGif.load(data.images.original.url,imageLoader = getImageLoader(context))
+
+            binding.shareButton.setOnClickListener(View.OnClickListener {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.setType("image/gif")
+                val body = "Share this gif"
+                val sub = data.images.original.url
+                intent.putExtra(Intent.EXTRA_TEXT, body)
+                intent.putExtra(Intent.EXTRA_TEXT, sub)
+                context.startActivity(Intent.createChooser(intent,"Share using"))
+
+            })
+
+            holder.binding.rootLayout.setOnClickListener {
+                onGifClickedListener.onGifClicked(data)
+
+            }
+
         }
     }
+
+
 
     // Skip unchanged items in the RecyclerView
     class DiffCallback : DiffUtil.ItemCallback<GifData>(){
@@ -46,4 +62,9 @@ class GifsAdapter(val context: Context, val gifs: List<GifData> = mutableListOf(
             return oldItem == newItem
         }
     }
+
+}
+
+interface OnGifClickedListener {
+    fun onGifClicked(data:GifData){}
 }

@@ -1,5 +1,6 @@
 package com.example.giphyappmonkeytech.dataclasses
 
+
 data class ImageData(
     val original: OriginalImageData
 )

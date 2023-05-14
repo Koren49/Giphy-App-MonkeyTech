@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class GifViewModel : ViewModel() {
 
@@ -23,9 +22,10 @@ class GifViewModel : ViewModel() {
     private val _state = MutableLiveData<State>()
     val state: LiveData<State> = _state
 
+    // Function that get gifs from retrofit
     fun getGifs(keyword: String = "") {
         CoroutineScope(Dispatchers.IO).launch {
-            RepoFactory.postsRepository.getGifsFromRemote(keyword).enqueue(object :
+            RepoFactory.gifsRepository.getGifsFromRemote(keyword).enqueue(object :
                 retrofit2.Callback<GifDataResult> {
                 override fun onResponse(
                     call: Call<GifDataResult>,

@@ -12,108 +12,117 @@
     app:cardBackgroundColor="@color/white"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="8dp"
+    android:id="@+id/root_layout"
     tools:ignore="ContentDescription">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        >
+        android:padding="16dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_gif"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/roundedImageView"
-            app:srcCompat="@color/cream_custom"/>
+            app:srcCompat="@color/cream_custom" />
 
         <TextView
             android:id="@+id/gif_title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:maxLines="1"
+            android:layout_marginTop="@dimen/views_margin_top_16"
+            android:layout_marginStart="4dp"
             android:ellipsize="end"
+            android:maxLines="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_gif" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_gif" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/views_margin_top_16"
             android:src="@drawable/ic_circled_avatar"
-            app:civ_border_width="1dp"
             app:civ_border_color="#FF000000"
-            app:layout_constraintTop_toBottomOf="@id/gif_title"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:civ_border_width="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gif_title" />
 
         <TextView
-            android:id ="@+id/fake_user_name"
+            android:id="@+id/fake_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@id/profile_image"
-            app:layout_constraintTop_toTopOf="@id/profile_image"
+            android:layout_marginStart="@dimen/views_margin_start_8"
+            android:text="@string/fake_user_name"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/fake_upload_time"
-            android:text ="Alehandro.Gaucho"
-            android:textStyle = "bold"/>
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintTop_toTopOf="@id/profile_image" />
 
         <TextView
-            android:id ="@+id/fake_upload_time"
+            android:id="@+id/fake_upload_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@id/profile_image"
+            android:layout_marginStart="@dimen/views_margin_start_8"
+
+            android:text="@string/fake_upload_time"
             app:layout_constraintBottom_toBottomOf="@id/profile_image"
-            app:layout_constraintTop_toBottomOf="@+id/fake_user_name"
-            android:text ="12/5/2023 10:47"/>
+            app:layout_constraintStart_toEndOf="@id/profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/fake_user_name" />
 
         <ImageView
             android:id="@+id/like_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@drawable/ic_like_icon"
-            app:layout_constraintTop_toTopOf="@id/profile_image"
             app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_image" />
 
         <TextView
-            android:id ="@+id/likes_count"
+            android:id="@+id/likes_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@id/like_icon"
-            app:layout_constraintTop_toTopOf="@id/profile_image"
+            android:layout_marginEnd="@dimen/views_margin_end_8"
+            android:text="@string/fake_likes_count"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/profile_image"
-            android:text ="19.8k"
-            android:textStyle = "bold"/>
+            app:layout_constraintEnd_toStartOf="@id/like_icon"
+            app:layout_constraintTop_toTopOf="@id/profile_image" />
 
         <ImageView
             android:id="@+id/comment_icon"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/views_margin_end_8"
             android:src="@drawable/ic_comment_icon"
-            app:layout_constraintTop_toTopOf="@id/profile_image"
             app:layout_constraintBottom_toBottomOf="@id/profile_image"
-            app:layout_constraintEnd_toStartOf="@id/likes_count" />
+            app:layout_constraintEnd_toStartOf="@id/likes_count"
+            app:layout_constraintTop_toTopOf="@id/profile_image" />
 
         <TextView
-            android:id ="@+id/comments_count"
+            android:id="@+id/comments_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toStartOf="@id/comment_icon"
-            app:layout_constraintTop_toTopOf="@id/profile_image"
+            android:layout_marginEnd="@dimen/views_margin_end_8"
+            android:text="@string/fake_comments_count"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/profile_image"
-            android:text ="3k"
-            android:textStyle = "bold"/>
+            app:layout_constraintEnd_toStartOf="@id/comment_icon"
+            app:layout_constraintTop_toTopOf="@id/profile_image" />
+
+        <ImageButton
+            android:id="@+id/share_button"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="@dimen/views_margin_top_8"
+            android:src="@drawable/ic__share"
+            app:layout_constraintTop_toTopOf="@id/gif_title"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

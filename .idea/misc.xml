@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/drawable/ic__share.xml" value="0.1025" />
         <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/drawable/ic_circled_avatar.xml" value="0.1655" />
         <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
         <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/drawable/ic_search_fill0_wght400_grad0_opsz48.xml" value="0.1" />
         <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/layout/activity_main.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/layout/gif_layout.xml" value="0.25" />
+        <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/layout/pop_up_activity.xml" value="0.34692028985507245" />
         <entry key="..\:/Users/koren/AndroidStudioProjects/GiphyAppMonkeyTech/app/src/main/res/menu/menu.xml" value="0.25" />
       </map>
     </option>

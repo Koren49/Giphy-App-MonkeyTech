@@ -1,10 +1,13 @@
-package com.example.giphyappmonkeytech
+package com.example.giphyappmonkeytech.service
 
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.IBinder
 import android.widget.Toast
+import com.example.giphyappmonkeytech.R
+
+// Service of the playground music
 
 class BackgroundMusicService : Service() {
     var mediaPlayer: MediaPlayer? = null
@@ -24,7 +27,7 @@ class BackgroundMusicService : Service() {
         mediaPlayer?.start()
         Toast.makeText(
             applicationContext,
-            "Playing Bohemian Rashpody in the Background",
+            "Playing Sittin on the dock of the bay in the Background",
             Toast.LENGTH_SHORT
         ).show()
         return startId

@@ -6,12 +6,12 @@ import com.example.giphyappmonkeytech.service.GiphyRetrofit
 import com.example.giphyappmonkeytech.utils.Constants
 import retrofit2.Call
 
-// This is what we expose to the caller of the repository (ViewModel usually)
+// This is what we expose to the caller of the repository
 interface GifRepo {
     fun getGifsFromRemote(keyword: String): Call<GifDataResult>
 }
 
-// This can include private functions that are not exposed to the caller of the repository (ViewModel usually)
+// This can include private functions that are not exposed to the caller of the repository
 object GifRepoImpl : GifRepo {
     override fun getGifsFromRemote(keyword: String): Call<GifDataResult> {
         return if (keyword.isBlank()) {
