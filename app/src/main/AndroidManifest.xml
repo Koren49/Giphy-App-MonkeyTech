@@ -29,6 +29,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.PopUpActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.GiphyAppMonkeyTech">
+        </activity>
+
         <service android:name=".service.BackgroundMusicService" />
     </application>
 

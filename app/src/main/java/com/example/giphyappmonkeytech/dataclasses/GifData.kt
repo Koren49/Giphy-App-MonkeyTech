@@ -4,7 +4,7 @@ import java.io.Serializable
 
 
 
-data class GifData(
+data class GifData (
 
     val title: String,
     val images: ImageData

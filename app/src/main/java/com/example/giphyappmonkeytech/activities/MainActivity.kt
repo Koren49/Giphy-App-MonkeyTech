@@ -99,8 +99,7 @@ class MainActivity : AppCompatActivity(), OnGifClickedListener {
 
     override fun onGifClicked(gifData: GifData) {
         val myIntent = Intent(this@MainActivity, PopUpActivity::class.java)
-        myIntent.putExtra("gif_key", gifData.images.original.url)
-        val gifData: GifData = intent.getSerializableExtra("gif_key") as GifData
+        myIntent.putExtra("gif_key", gifData)
         startActivity(myIntent)
     }
 }

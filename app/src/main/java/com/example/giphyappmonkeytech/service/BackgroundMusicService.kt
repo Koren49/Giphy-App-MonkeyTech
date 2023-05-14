@@ -25,11 +25,6 @@ class BackgroundMusicService : Service() {
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         mediaPlayer?.start()
-        Toast.makeText(
-            applicationContext,
-            "Playing Sittin on the dock of the bay in the Background",
-            Toast.LENGTH_SHORT
-        ).show()
         return startId
     }
 
