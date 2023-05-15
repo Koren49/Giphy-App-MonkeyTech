@@ -38,15 +38,6 @@ class MainActivity : AppCompatActivity(), OnGifClickedListener {
         setupRecyclerView()
         setupObservers()
 
-
-
-//            val gifImage = findViewById<ImageView>(R.id.iv_gif)
-//            gifImage.setOnClickListener(){
-//                val myIntent = Intent(this@MainActivity, PopUpActivity::class.java)
-//                myIntent.putExtra("gif_key",gifImage )
-//                startActivity(myIntent)
-//        }
-
     }
 
     private fun playBackgroundMusic() {
