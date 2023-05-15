@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.widget.ImageView
 import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +13,6 @@ import com.example.giphyappmonkeytech.GifsAdapter
 import com.example.giphyappmonkeytech.OnGifClickedListener
 import com.example.giphyappmonkeytech.R
 import com.example.giphyappmonkeytech.databinding.ActivityMainBinding
-import com.example.giphyappmonkeytech.databinding.PopUpActivityBinding
 import com.example.giphyappmonkeytech.dataclasses.GifData
 import com.example.giphyappmonkeytech.service.BackgroundMusicService
 import com.example.giphyappmonkeytech.viewmodels.GifViewModel

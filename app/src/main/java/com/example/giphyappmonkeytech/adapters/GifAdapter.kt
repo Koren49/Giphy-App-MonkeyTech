@@ -2,12 +2,9 @@ package com.example.giphyappmonkeytech
 
 import android.content.Context
 import android.content.Intent
-import android.content.IntentSender
-import android.os.Build.VERSION.SDK_INT
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
