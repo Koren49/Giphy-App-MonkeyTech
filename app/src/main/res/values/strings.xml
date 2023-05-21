@@ -4,4 +4,6 @@
     <string name="fake_upload_time">25/3/2023 10:47</string>
     <string name="fake_likes_count">19.6K </string>
     <string name="fake_comments_count">3K </string>
+    <string name="share_gif_text">Share this gif </string>
+    <string name="share_gif_title">Share this gif </string>
 </resources>

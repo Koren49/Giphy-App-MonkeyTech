@@ -51,7 +51,5 @@ class GifViewModel : ViewModel() {
                 }
             })
         }
-
-
     }
 }

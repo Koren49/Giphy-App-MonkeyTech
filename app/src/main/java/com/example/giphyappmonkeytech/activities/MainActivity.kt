@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -15,17 +14,13 @@ import com.example.giphyappmonkeytech.R
 import com.example.giphyappmonkeytech.databinding.ActivityMainBinding
 import com.example.giphyappmonkeytech.dataclasses.GifData
 import com.example.giphyappmonkeytech.service.BackgroundMusicService
+import com.example.giphyappmonkeytech.utils.Constants.GIF_KEY
 import com.example.giphyappmonkeytech.viewmodels.GifViewModel
-
-
 
 class MainActivity : AppCompatActivity(), OnGifClickedListener {
 
-    private lateinit var toolbar: Toolbar
-
     private val gifsViewModel: GifViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +30,6 @@ class MainActivity : AppCompatActivity(), OnGifClickedListener {
         playBackgroundMusic()
         setupRecyclerView()
         setupObservers()
-
     }
 
     private fun playBackgroundMusic() {
@@ -50,7 +44,6 @@ class MainActivity : AppCompatActivity(), OnGifClickedListener {
         val manager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchItem = menu?.findItem(R.id.action_search)
         val searchView = searchItem?.actionView as SearchView
-
 
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
 
@@ -75,7 +68,6 @@ class MainActivity : AppCompatActivity(), OnGifClickedListener {
     private fun setupObservers() {
         gifsViewModel.gifList.observe(this) {
             (binding.gifRecyclerView.adapter as? GifsAdapter)?.submitList(it)
-
         }
         gifsViewModel.getGifs()
     }
@@ -88,7 +80,7 @@ class MainActivity : AppCompatActivity(), OnGifClickedListener {
 
     override fun onGifClicked(gifData: GifData) {
         val myIntent = Intent(this@MainActivity, PopUpActivity::class.java)
-        myIntent.putExtra("gif_key", gifData)
+        myIntent.putExtra(GIF_KEY, gifData)
         startActivity(myIntent)
     }
 }
